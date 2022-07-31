@@ -28,7 +28,7 @@ public record MyTaxi(StandardTaxi standardTaxi, LuxuryTaxi luxuryTaxi, Executive
 
         System.out.println();
         System.out.print(currentLocation + " to " + gotoDestination);
-        System.out.println("is " + distanceOfRide + " Km.");
+        System.out.println(" is " + distanceOfRide + " Km.");
         System.out.println();
 
         System.out.println(""" 
@@ -50,7 +50,7 @@ public record MyTaxi(StandardTaxi standardTaxi, LuxuryTaxi luxuryTaxi, Executive
 
         if(number == 1){
             thePrice = standardTaxi.getPrice() * distanceOfRide2;
-            taxiType = standardTaxi.getCarType();
+            taxiType = standardTaxi.getRideType();
         } else if(number == 2){
             thePrice = luxuryTaxi.getPricePerKilometer() * distanceOfRide2;
             taxiType = luxuryTaxi.getRideType();
@@ -87,7 +87,7 @@ public record MyTaxi(StandardTaxi standardTaxi, LuxuryTaxi luxuryTaxi, Executive
                 }
 
                 farePrice2 += thePrice;
-                System.out.println("Fare for this ride is " +  thePrice);
+                System.out.println("\nFare for this ride is " +  thePrice);
                 System.out.println();
                 bookingConfirmation(farePrice2);
                 flag = false;
@@ -139,7 +139,7 @@ public record MyTaxi(StandardTaxi standardTaxi, LuxuryTaxi luxuryTaxi, Executive
                 System.out.println("Thanks, Book with us again! ");
 
                 System.out.println();
-                System.out.println("Please leave a review for this ride from 1-5");
+                System.out.println("Please leave a review for this ride from 1-5 star");
                 review();
             }
 
@@ -221,8 +221,8 @@ public record MyTaxi(StandardTaxi standardTaxi, LuxuryTaxi luxuryTaxi, Executive
             System.out.println("Enter Top up amount");
             double topUPAmount = myScanner.nextDouble();
             passengerWallet += topUPAmount;
-            System.out.println("Top up successful");
-            System.out.println("Wallet Balance = $" + passengerWallet);
+            System.out.print("Top up successful! ");
+            System.out.println("New wallet Balance = $" + passengerWallet);
         } catch (Exception e) {
             System.out.println("sorry, we suspect a problem");
         }
@@ -232,7 +232,17 @@ public record MyTaxi(StandardTaxi standardTaxi, LuxuryTaxi luxuryTaxi, Executive
     }
     public void review(){
        // System.out.println("Rate this ride ");
-        int rate = myScanner.nextInt();
+        int rate;
+        rate = myScanner.nextInt();
+        myScanner.nextLine();
+        while (rate <= 0 || rate >= 6) {
+            // System.out.println("...");
+            System.out.println("Input ratings from 1-5 only");
+            int newRate = myScanner.nextInt();
+            rate = newRate;
+            myScanner.nextLine();
+        }
+
         for(int i = 0; i <rate; i++) {
             System.out.print("*");
         }

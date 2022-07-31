@@ -4,7 +4,7 @@ import static java.lang.System.in;
 
 public class Main {
     static Scanner myScanner = new Scanner(in);
-    public static StandardTaxi standardTaxi = new StandardTaxi("Moses", "08067543628", 45, "Grey", "Toyota Corolla", "ABJ763", "Sedan", "Standard");
+    public static StandardTaxi standardTaxi = new StandardTaxi("Moses", "08067543628", 45, "Grey", "Toyota Corolla", "ABJ763", "Sedan", "Standard ");
     public static LuxuryTaxi luxuryTaxi = new LuxuryTaxi();
     public static ExecutiveTaxi executiveTaxi = new ExecutiveTaxi();
     public static MyTaxi myTaxi = new MyTaxi(standardTaxi, luxuryTaxi, executiveTaxi);
@@ -30,14 +30,14 @@ public class Main {
     public static void loadWallet(){
         myTaxi.topUpWallet();
     }
-    // How are you today 
+    // How are you today
 
     public static void myTaxiMenu(){
         System.out.println("""
                 Press
                 1 to book a ride.
                 2 to search for taxi.
-                3 to for passenger number.
+                3 for passenger number.
                 4 to quit this application.
                 5 to return to Menu.
                 6 to reload passenger wallet.
