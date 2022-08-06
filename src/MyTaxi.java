@@ -220,6 +220,7 @@ public record MyTaxi(StandardTaxi standardTaxi, LuxuryTaxi luxuryTaxi, Executive
         try {
             System.out.println("Enter Top up amount");
             double topUPAmount = myScanner.nextDouble();
+            myScanner.nextLine();
             passengerWallet += topUPAmount;
             System.out.print("Top up successful! ");
             System.out.println("New wallet Balance = $" + passengerWallet);

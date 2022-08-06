@@ -60,9 +60,13 @@ public class Main {
             System.out.println();
             System.out.println("Select menu option");
             int options = myScanner.nextInt();
+            myScanner.nextLine();
             switch (options) {
                 case 1 -> bookRide();
-                case 4 -> quit = true;
+                case 4 -> {
+                    System.out.println("Goodbye...");
+                    quit = true;
+                }
                 case 3 -> passengersInRide();
                 case 2 -> findRides();
                 case 5 -> myTaxiMenu();
